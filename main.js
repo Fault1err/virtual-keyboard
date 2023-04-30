@@ -48,6 +48,22 @@ renderField.addEventListener('click', (e) => {
     el.classList.remove('active');
   });
   const targetClick = e.target.closest('div.keyboard-key');
+  let targetKey = e.target.innerHTML;
+  if (targetKey === 'Space') {
+    targetKey = '\t';
+  } else if (targetKey === 'Backspace') {
+    targetKey = '';
+    screenForPrint.value = screenForPrint.value.substring(0, screenForPrint.value.length - 1);
+  } else if (targetKey === 'Tab') {
+    targetKey = '\t';
+  } else if (targetKey === 'Enter') {
+    targetKey = '\n';
+  } else if (targetKey === '►') {
+    targetKey = '';
+  }
+
   targetClick.classList.add('active');
+  screenForPrint.value += targetKey;
   console.log(targetClick);
+  console.log(targetKey);
 });
