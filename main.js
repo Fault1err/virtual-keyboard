@@ -4,6 +4,9 @@ const h1Field = document.createElement('h1');
 document.body.append(h1Field);
 h1Field.innerHTML = 'RSS Virtual Keyboard';
 
+const screenForPrint = document.createElement('textarea');
+document.body.append(screenForPrint);
+
 const renderField = document.createElement('div');
 renderField.className = 'render_field';
 renderField.id = 'keyboard';
