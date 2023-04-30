@@ -24,8 +24,8 @@ const keyboard = keyboardEng;
 const renderKeyboard = () => {
   let renderedKeyboard = '';
   for (let i = 0; i < keyboard.length; i += 1) {
-    renderedKeyboard += `<div class="keyboard-key key-${keyboard[i]}">
-    ${keyboard[i]}</div>`;
+    const num = keyboard[i].trim();
+    renderedKeyboard += `<div class="keyboard-key key-${num} data="${num}">${num}</div>`;
   }
   document.querySelector('#keyboard').innerHTML = renderedKeyboard;
 };
@@ -33,3 +33,17 @@ renderKeyboard();
 
 const SpaceKey = document.querySelector('.key-Space');
 SpaceKey.classList.add('space-key-width');
+
+document.onkeydown = function (event) {
+  // console.log(event.code);
+  // console.log(event.key);
+  // console.log(event);
+  // document.querySelectorAll('.keyboard-key').forEach((el) => {
+  //   el.classList.remove('active');
+  // });
+  document.querySelector(`.key-${event.key}`).classList.add('active');
+};
+
+document.onkeyup = function (event) {
+  document.querySelector(`.key-${event.key}`).classList.remove('active');
+};

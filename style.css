@@ -43,3 +43,7 @@ textarea {
 .space-key-width {
     padding: 10px 106px;
 }
+
+.active {
+    background-color: #D3D3D3;
+}
