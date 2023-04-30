@@ -3,6 +3,7 @@ document.body.append(h1Field);
 h1Field.innerHTML = 'RSS Virtual Keyboard';
 
 const screenForPrint = document.createElement('textarea');
+screenForPrint.setAttribute('autofocus', 'autofocus');
 document.body.append(screenForPrint);
 
 const renderField = document.createElement('div');
