@@ -49,7 +49,7 @@ textarea {
     border-radius: 3px;
     margin: 5px;
     box-shadow: 4px 4px 7px #DCDCDC;
-}
+    }
 
 .space-key-width {
     padding: 10px 106px;
@@ -57,4 +57,5 @@ textarea {
 
 .active {
     background-color: #D3D3D3;
+    transform: scale(1.08);
 }
