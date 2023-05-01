@@ -19,13 +19,13 @@ const keyboardEng = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
   '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
   ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/',
-  'Shift', '▲', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
+  'Shift', '▲', 'Del', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
 
 const keyboardRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з',
   'х', 'ъ', '\\', 'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д',
   'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.',
-  'Shift', '▲', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
+  'Shift', '▲', 'Del', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
 
 // let keyboard = keyboardEng;
 
@@ -51,7 +51,7 @@ function getLangFromStorage() {
 
 window.addEventListener('load', getLangFromStorage);
 
-// localStorage.clear();
+localStorage.clear();
 keyboard = getLangFromStorage();
 
 const renderKeyboard = () => {
@@ -118,6 +118,7 @@ document.onkeydown = (event) => {
     document.querySelector('.key-051').classList.add('active');
   } else if (event.code === 'ShiftRight') {
     document.querySelector('.key-052').classList.add('active');
+    getCapslockedFromKeyboard();
   } else if (event.code === 'ControlLeft') {
     document.querySelector('.key-054').classList.add('active');
     console.log(event);
@@ -154,12 +155,12 @@ document.onkeydown = (event) => {
 
 let check = false;
 document.addEventListener('keydown', (event) => {
-  document.querySelector('.key-056').classList.add('active');
   if (event.code === 'ControlLeft') check = true;
+
   if (event.code === 'AltLeft' && check) {
-    // check = false;
+    check = false;
     renderKeyboardAnother();
-    console.log('ding');
+    console.log('ding!');
   }
 });
 
@@ -193,6 +194,7 @@ document.onkeyup = (event) => {
     document.querySelector('.key-051').classList.remove('active');
   } else if (event.code === 'ShiftRight') {
     document.querySelector('.key-052').classList.remove('active');
+    getCapslockedFromKeyboard();
   } else if (event.code === 'ControlLeft') {
     document.querySelector('.key-054').classList.remove('active');
   } else if (event.code === 'MetaLeft') {
@@ -270,6 +272,9 @@ renderField.addEventListener('mousedown', (e) => {
     targetKey = '';
   } else if (targetKey === 'ctrl') {
     targetKey = '';
+  } else if (targetKey === 'del') {
+    targetKey = '';
+    screenForPrint.value = screenForPrint.value.slice(1, screenForPrint.value.length + 1);
   }
   targetClick.classList.add('active');
   screenForPrint.value += targetKey;

@@ -53,21 +53,23 @@ textarea {
 }
 
 .key-041 {
-    width: 49px;
+    width: 47px;
 }
 
 .key-052 {
-    width: 49px;
+    width: 47px;
 }
 
-.key-ctrl,
-.key-054,
-.key-059 {
+.key-ctrl {
     width: 40px;
 }
 
+.key-054 {
+    width: 20px;
+}
+
 .key-space {
-    width: 238px;
+    width: 233px;
 }
 
 .key-fn {
