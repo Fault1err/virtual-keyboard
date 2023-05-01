@@ -11,6 +11,10 @@ renderField.className = 'render_field';
 renderField.id = 'keyboard';
 document.body.append(renderField);
 
+const pField = document.createElement('p');
+document.body.append(pField);
+pField.innerHTML = 'Для корректной работы анимации кнопок язык физической клавиатуры должен соответствовать языку экранной клавиатуры. Клавиатура соответствует OS Windows. <br> Переключение раскладки - Ctrl + Alt.';
+
 const keyboardEng = ['~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
   '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
@@ -67,3 +71,10 @@ renderField.addEventListener('click', (e) => {
   console.log(targetClick);
   console.log(targetKey);
 });
+
+// const capsKey = document.querySelector('.key-CapsLock');
+// capsKey.addEventListener('keypress', (e) => {
+
+//   screenForPrint.value += screenForPrint.toUpperCase();
+//   console.log('CAPSED!');
+//   });

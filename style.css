@@ -2,12 +2,20 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Rubik', sans-serif;
+    min-height: 100vh;
 }
 
 h1 {
     text-align: center;
     color: #696969;
     margin-bottom: 30px;
+}
+
+p {
+    margin: 0 auto;
+    color: #696969;
+    margin-top: 30px;
+    width: 950px;
 }
 
 textarea {
@@ -21,6 +29,7 @@ textarea {
     font-size: 20px;
     font-family: 'Rubik', sans-serif;
     color: #808080;
+    box-shadow: 4px 4px 8px #DCDCDC;
 }
 
 .render_field {
@@ -31,6 +40,7 @@ textarea {
     border-radius: 5px;
     padding: 5px;
     width: 950px;
+    box-shadow: 4px 4px 8px #DCDCDC;
 }
 
 .keyboard-key {
@@ -38,6 +48,7 @@ textarea {
     border: 1px solid #808080;
     border-radius: 3px;
     margin: 5px;
+    box-shadow: 4px 4px 7px #DCDCDC;
 }
 
 .space-key-width {
