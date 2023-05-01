@@ -36,6 +36,12 @@ renderKeyboard();
 const SpaceKey = document.querySelector('.key-space');
 SpaceKey.classList.add('space-key-width');
 
+function getCapslockedFromKeyboard() {
+  document.querySelectorAll('.keyboard-key').forEach((el) => {
+    el.classList.toggle('capslocked');
+  });
+}
+
 document.onkeydown = (event) => {
   console.log(event.code);
   if (event.code === 'Backquote') {
@@ -145,6 +151,9 @@ document.onkeyup = (event) => {
     document.querySelector('.key-061').classList.remove('active');
   } else if (event.code === 'ArrowRight') {
     document.querySelector('.key-062').classList.remove('active');
+  } else if (event.code === 'CapsLock') {
+    document.querySelector('.key-020').classList.remove('active');
+    getCapslockedFromKeyboard();
   } else {
     document.querySelector(`.key-${event.key.toLowerCase()}`).classList.remove('active');
   }
