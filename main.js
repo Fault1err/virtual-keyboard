@@ -152,8 +152,12 @@ document.onkeydown = (event) => {
   }
 };
 
+let check = false;
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Control' && event.code === 'ControlLeft') {
+  document.querySelector('.key-056').classList.add('active');
+  if (event.code === 'ControlLeft') check = true;
+  if (event.code === 'AltLeft' && check) {
+    // check = false;
     renderKeyboardAnother();
     console.log('ding');
   }
