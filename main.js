@@ -216,7 +216,8 @@ function removeCapslocked() {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     if (el.classList.contains('capslocked')) {
       el.classList.remove('capslocked');
-      el.innerHTML = el.innerHTML.toLowerCase(); // eslint-disable-line no-param-reassign
+      const result = el;
+      result.innerHTML = result.innerHTML.toLowerCase();
     }
   });
 }
@@ -224,7 +225,8 @@ function removeCapslocked() {
 function getCapslocked() {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     el.classList.add('capslocked');
-    el.innerHTML = el.innerHTML.toUpperCase(); // eslint-disable-line no-param-reassign
+    const result = el;
+    result.innerHTML = result.innerHTML.toUpperCase();
   });
 }
 
