@@ -39,7 +39,7 @@ textarea {
     border: 1px solid #808080;
     border-radius: 5px;
     padding: 5px;
-    width: 950px;
+    width: 965px;
     box-shadow: 4px 4px 8px #DCDCDC;
 }
 
@@ -52,15 +52,21 @@ textarea {
     text-align: center;
 }
 
-.key-shift {
-    width: 50px;
+.key-041 {
+    width: 49px;
 }
 
-.key-ctrl {
+.key-052 {
+    width: 49px;
+}
+
+.key-ctrl,
+.key-054,
+.key-059 {
     width: 40px;
 }
 
-.space-key-width {
+.key-space {
     width: 238px;
 }
 
@@ -77,7 +83,7 @@ textarea {
 }
 
 .key-enter {
-    width: 80px;
+    width: 75px;
 }
 
 .active {

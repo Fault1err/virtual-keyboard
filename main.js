@@ -21,7 +21,13 @@ const keyboardEng = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/',
   'Shift', '▲', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
 
-const keyboard = keyboardEng;
+const keyboardRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
+  '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з',
+  'х', 'ъ', '\\', 'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д',
+  'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.',
+  'Shift', '▲', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
+
+let keyboard = keyboardEng;
 
 const renderKeyboard = () => {
   let renderedKeyboard = '';
@@ -33,8 +39,19 @@ const renderKeyboard = () => {
 };
 renderKeyboard();
 
-const SpaceKey = document.querySelector('.key-space');
-SpaceKey.classList.add('space-key-width');
+function renderKeyboardAnother() {
+  renderField.innerHTML = '';
+  if (keyboard === keyboardEng) {
+    keyboard = keyboardRus;
+    renderKeyboard();
+  } else {
+    keyboard = keyboardEng;
+    renderKeyboard();
+  }
+}
+
+// const SpaceKey = document.querySelector('.key-space');
+// SpaceKey.classList.add('space-key-width');
 
 function getCapslockedFromKeyboard() {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
@@ -76,6 +93,8 @@ document.onkeydown = (event) => {
     document.querySelector('.key-052').classList.add('active');
   } else if (event.code === 'ControlLeft') {
     document.querySelector('.key-054').classList.add('active');
+    console.log(event);
+    // renderKeyboardAnother();
   } else if (event.code === 'MetaLeft') {
     event.preventDefault();
     document.querySelector('.key-054').classList.add('active');
@@ -105,6 +124,13 @@ document.onkeydown = (event) => {
     console.log(event);
   }
 };
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Control' && event.code === 'ControlLeft') {
+    renderKeyboardAnother();
+    console.log('ding');
+  }
+});
 
 document.onkeyup = (event) => {
   if (event.code === 'Backquote') {
