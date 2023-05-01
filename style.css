@@ -49,13 +49,43 @@ textarea {
     border-radius: 3px;
     margin: 5px;
     box-shadow: 4px 4px 7px #DCDCDC;
-    }
+    text-align: center;
+}
+
+.key-shift {
+    width: 50px;
+}
+
+.key-ctrl {
+    width: 40px;
+}
 
 .space-key-width {
-    padding: 10px 106px;
+    width: 238px;
+}
+
+.key-fn {
+    width: 30px;
+}
+
+.key-alt {
+    width: 40px;
+}
+
+.key-capslock {
+    width: 80px;
+}
+
+.key-enter {
+    width: 80px;
 }
 
 .active {
     background-color: #D3D3D3;
     transform: scale(1.08);
 }
+
+.capslocked {
+    text-transform: uppercase;
+}
+

@@ -19,7 +19,7 @@ const keyboardEng = ['~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
   '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
   ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/',
-  'Shift', '▲', 'CtrlLeft', 'fn', 'Alt', 'Space', 'Alt', 'CtrlRight', '◄', '▼', '►'];
+  'Shift', '▲', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
 
 const keyboard = keyboardEng;
 
@@ -29,11 +29,11 @@ const renderKeyboard = () => {
     const num = keyboard[i].trim();
     renderedKeyboard += `<div class="keyboard-key key-${num} data="${num}">${num}</div>`;
   }
-  document.querySelector('#keyboard').innerHTML = renderedKeyboard;
+  document.querySelector('#keyboard').innerHTML = renderedKeyboard.toLowerCase();
 };
 renderKeyboard();
 
-const SpaceKey = document.querySelector('.key-Space');
+const SpaceKey = document.querySelector('.key-space');
 SpaceKey.classList.add('space-key-width');
 
 document.onkeydown = (event) => {
@@ -47,25 +47,48 @@ document.onkeyup = (event) => {
   document.querySelector(`.key-${event.key}`).classList.remove('active');
 };
 
+function removeCapslocked() {
+  document.querySelectorAll('.keyboard-key').forEach((el) => {
+    if (el.classList.contains('capslocked')) {
+      el.classList.remove('capslocked');
+      console.log('removed!');
+      el.innerHTML = el.innerHTML.toLowerCase(); // eslint-disable-line no-param-reassign
+    }
+  });
+}
+
+function getCapslocked() {
+  document.querySelectorAll('.keyboard-key').forEach((el) => {
+    el.classList.add('capslocked');
+    el.innerHTML = el.innerHTML.toUpperCase(); // eslint-disable-line no-param-reassign
+    console.log(el.innerHTML);
+  });
+}
+
 renderField.addEventListener('mousedown', (e) => {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     el.classList.remove('active');
   });
   const targetClick = e.target.closest('div.keyboard-key');
   let targetKey = e.target.innerHTML;
-  if (targetKey === 'Space') {
+  if (targetKey === 'space') {
     targetKey = '\t';
-  } else if (targetKey === 'Backspace') {
+  } else if (targetKey === 'backspace') {
     targetKey = '';
     screenForPrint.value = screenForPrint.value.substring(0, screenForPrint.value.length - 1);
-  } else if (targetKey === 'Tab') {
+  } else if (targetKey === 'tab') {
     targetKey = '\t';
-  } else if (targetKey === 'Enter') {
+  } else if (targetKey === 'enter') {
     targetKey = '\n';
   } else if (targetKey === '►') {
     targetKey = '';
+  } else if (targetKey === 'capslock') {
+    targetKey = '';
+    getCapslocked();
+  } else if (targetKey === 'CAPSLOCK') {
+    targetKey = '';
+    removeCapslocked();
   }
-
   targetClick.classList.add('active');
   screenForPrint.value += targetKey;
   console.log(targetClick);
@@ -77,5 +100,3 @@ window.onmouseup = () => {
     el.classList.remove('active');
   });
 };
-
-
