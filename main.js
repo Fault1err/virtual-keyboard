@@ -119,31 +119,33 @@ document.onkeydown = (event) => {
   } else if (event.code === 'ShiftRight') {
     document.querySelector('.key-052').classList.add('active');
     getCapslockedFromKeyboard();
-  } else if (event.code === 'ControlLeft') {
+  } else if (event.code === 'Delete') {
     document.querySelector('.key-054').classList.add('active');
+  } else if (event.code === 'ControlLeft') {
+    document.querySelector('.key-055').classList.add('active');
     console.log(event);
     // renderKeyboardAnother();
   } else if (event.code === 'MetaLeft') {
     event.preventDefault();
-    document.querySelector('.key-054').classList.add('active');
+    document.querySelector('.key-056').classList.add('active');
   } else if (event.code === 'AltLeft') {
     event.preventDefault();
-    document.querySelector('.key-056').classList.add('active');
-  } else if (event.code === 'Space') {
     document.querySelector('.key-057').classList.add('active');
+  } else if (event.code === 'Space') {
+    document.querySelector('.key-058').classList.add('active');
   } else if (event.code === 'AltRight') {
     event.preventDefault();
-    document.querySelector('.key-058').classList.add('active');
-  } else if (event.code === 'ControlRight') {
     document.querySelector('.key-059').classList.add('active');
-  } else if (event.code === 'ArrowLeft') {
+  } else if (event.code === 'ControlRight') {
     document.querySelector('.key-060').classList.add('active');
+  } else if (event.code === 'ArrowLeft') {
+    document.querySelector('.key-061').classList.add('active');
   } else if (event.code === 'ArrowUp') {
     document.querySelector('.key-053').classList.add('active');
   } else if (event.code === 'ArrowDown') {
-    document.querySelector('.key-061').classList.add('active');
-  } else if (event.code === 'ArrowRight') {
     document.querySelector('.key-062').classList.add('active');
+  } else if (event.code === 'ArrowRight') {
+    document.querySelector('.key-063').classList.add('active');
   } else {
     document.querySelectorAll('.keyboard-key').forEach((el) => {
       el.classList.remove('active');
@@ -195,27 +197,29 @@ document.onkeyup = (event) => {
   } else if (event.code === 'ShiftRight') {
     document.querySelector('.key-052').classList.remove('active');
     getCapslockedFromKeyboard();
-  } else if (event.code === 'ControlLeft') {
+  } else if (event.code === 'Delete') {
     document.querySelector('.key-054').classList.remove('active');
+  } else if (event.code === 'ControlLeft') {
+    document.querySelector('.key-055').classList.remove('active');
   } else if (event.code === 'MetaLeft') {
     event.preventDefault();
-    document.querySelector('.key-054').classList.remove('active');
-  } else if (event.code === 'AltLeft') {
     document.querySelector('.key-056').classList.remove('active');
-  } else if (event.code === 'Space') {
+  } else if (event.code === 'AltLeft') {
     document.querySelector('.key-057').classList.remove('active');
-  } else if (event.code === 'AltRight') {
+  } else if (event.code === 'Space') {
     document.querySelector('.key-058').classList.remove('active');
-  } else if (event.code === 'ControlRight') {
+  } else if (event.code === 'AltRight') {
     document.querySelector('.key-059').classList.remove('active');
-  } else if (event.code === 'ArrowLeft') {
+  } else if (event.code === 'ControlRight') {
     document.querySelector('.key-060').classList.remove('active');
+  } else if (event.code === 'ArrowLeft') {
+    document.querySelector('.key-061').classList.remove('active');
   } else if (event.code === 'ArrowUp') {
     document.querySelector('.key-053').classList.remove('active');
   } else if (event.code === 'ArrowDown') {
-    document.querySelector('.key-061').classList.remove('active');
-  } else if (event.code === 'ArrowRight') {
     document.querySelector('.key-062').classList.remove('active');
+  } else if (event.code === 'ArrowRight') {
+    document.querySelector('.key-063').classList.remove('active');
   } else if (event.code === 'CapsLock') {
     document.querySelector('.key-020').classList.remove('active');
     getCapslockedFromKeyboard();
