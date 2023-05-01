@@ -47,7 +47,7 @@ document.onkeyup = (event) => {
   document.querySelector(`.key-${event.key}`).classList.remove('active');
 };
 
-renderField.addEventListener('click', (e) => {
+renderField.addEventListener('mousedown', (e) => {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     el.classList.remove('active');
   });
@@ -72,9 +72,8 @@ renderField.addEventListener('click', (e) => {
   console.log(targetKey);
 });
 
-// const capsKey = document.querySelector('.key-CapsLock');
-// capsKey.addEventListener('keypress', (e) => {
-
-//   screenForPrint.value += screenForPrint.toUpperCase();
-//   console.log('CAPSED!');
-//   });
+window.onmouseup = () => {
+  document.querySelectorAll('.keyboard-key').forEach((el) => {
+    el.classList.remove('active');
+  });
+};
