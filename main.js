@@ -51,7 +51,8 @@ function getLangFromStorage() {
 
 window.addEventListener('load', getLangFromStorage);
 
-localStorage.clear();
+// localStorage.clear();
+
 keyboard = getLangFromStorage();
 
 const renderKeyboard = () => {
