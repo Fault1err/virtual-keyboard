@@ -57,6 +57,9 @@ document.onkeydown = (event) => {
     document.querySelector('.key-027').classList.add('active');
   } else if (event.code === 'BracketLeft') {
     document.querySelector('.key-025').classList.add('active');
+  } else if (event.code === 'ShiftLeft') {
+    document.querySelector('.key-041').classList.add('active');
+    getCapslockedFromKeyboard();
   } else if (event.code === 'BracketRight') {
     document.querySelector('.key-026').classList.add('active');
   } else if (event.code === 'Semicolon') {
@@ -114,6 +117,9 @@ document.onkeyup = (event) => {
     document.querySelector('.key-014').classList.remove('active');
   } else if (event.code === 'BracketLeft') {
     document.querySelector('.key-025').classList.remove('active');
+  } else if (event.code === 'ShiftLeft') {
+    document.querySelector('.key-041').classList.remove('active');
+    getCapslockedFromKeyboard();
   } else if (event.code === 'BracketRight') {
     document.querySelector('.key-026').classList.remove('active');
   } else if (event.code === 'Backslash') {
