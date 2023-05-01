@@ -1,0 +1,100 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #696969;
+    margin-bottom: 30px;
+}
+
+p {
+    margin: 0 auto;
+    color: #696969;
+    margin-top: 30px;
+    width: 950px;
+}
+
+textarea {
+    padding: 10px;
+    display: block;
+    height: 250px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    width: 950px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    color: #808080;
+    box-shadow: 4px 4px 8px #DCDCDC;
+}
+
+.render_field {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    padding: 5px;
+    width: 965px;
+    box-shadow: 4px 4px 8px #DCDCDC;
+}
+
+.keyboard-key {
+    padding: 10px 20px;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    margin: 5px;
+    box-shadow: 4px 4px 7px #DCDCDC;
+    text-align: center;
+}
+
+.key-041 {
+    width: 47px;
+}
+
+.key-052 {
+    width: 47px;
+}
+
+.key-ctrl {
+    width: 40px;
+}
+
+.key-054 {
+    width: 20px;
+}
+
+.key-space {
+    width: 233px;
+}
+
+.key-fn {
+    width: 30px;
+}
+
+.key-alt {
+    width: 40px;
+}
+
+.key-capslock {
+    width: 80px;
+}
+
+.key-enter {
+    width: 75px;
+}
+
+.active {
+    background-color: #D3D3D3;
+    transform: scale(1.08);
+}
+
+.capslocked {
+    text-transform: uppercase;
+}
+
