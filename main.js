@@ -198,20 +198,33 @@ renderField.addEventListener('mousedown', (e) => {
     targetKey = '\t';
   } else if (targetKey === 'enter') {
     targetKey = '\n';
-  } else if (targetKey === '►') {
-    targetKey = '';
   } else if (targetKey === 'capslock') {
     targetKey = '';
     getCapslocked();
   } else if (targetKey === 'CAPSLOCK') {
     targetKey = '';
     removeCapslocked();
+  } else if (targetKey === 'shift') {
+    targetKey = '';
+    getCapslockedFromKeyboard();
+  } else if (targetKey === 'alt') {
+    targetKey = '';
+  } else if (targetKey === 'fn') {
+    targetKey = '';
+  } else if (targetKey === 'ctrl') {
+    targetKey = '';
   }
-
   targetClick.classList.add('active');
   screenForPrint.value += targetKey;
   console.log(targetClick);
   console.log(targetKey);
+});
+
+renderField.addEventListener('mouseup', (e) => {
+  const targetKey = e.target.innerHTML;
+  if (targetKey === 'shift') {
+    getCapslockedFromKeyboard();
+  }
 });
 
 window.onmouseup = () => {
