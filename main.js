@@ -27,9 +27,35 @@ const keyboardRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.',
   'Shift', '▲', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
 
-let keyboard = keyboardEng;
+// let keyboard = keyboardEng;
+
+let keyboard;
+
+function setLocalStorage() {
+  localStorage.setItem('lang', JSON.stringify(keyboard));
+  console.log('set!');
+}
+
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLangFromStorage() {
+  if (localStorage.getItem('lang')) {
+    console.log('get!');
+    keyboard = JSON.parse(localStorage.getItem('lang'));
+    return keyboard;
+  }
+  console.log('default!');
+  keyboard = keyboardEng;
+  return keyboard;
+}
+
+window.addEventListener('load', getLangFromStorage);
+
+// localStorage.clear();
+keyboard = getLangFromStorage();
 
 const renderKeyboard = () => {
+  console.log(keyboard);
   let renderedKeyboard = '';
   for (let i = 0; i < keyboard.length; i += 1) {
     const num = keyboard[i].trim();
@@ -40,6 +66,7 @@ const renderKeyboard = () => {
 renderKeyboard();
 
 function renderKeyboardAnother() {
+  console.log('anoooother');
   renderField.innerHTML = '';
   if (keyboard === keyboardEng) {
     keyboard = keyboardRus;
