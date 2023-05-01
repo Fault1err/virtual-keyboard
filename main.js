@@ -27,36 +27,28 @@ const keyboardRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',
   'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.',
   'Shift', '▲', 'Del', 'Ctrl', 'fn', 'Alt', 'Space', 'Alt', 'Ctrl', '◄', '▼', '►'];
 
-// let keyboard = keyboardEng;
-
 let keyboard;
 
 function setLocalStorage() {
   localStorage.setItem('lang', JSON.stringify(keyboard));
-  console.log('set!');
 }
 
 window.addEventListener('beforeunload', setLocalStorage);
 
 function getLangFromStorage() {
   if (localStorage.getItem('lang')) {
-    console.log('get!');
     keyboard = JSON.parse(localStorage.getItem('lang'));
     return keyboard;
   }
-  console.log('default!');
   keyboard = keyboardEng;
   return keyboard;
 }
 
 window.addEventListener('load', getLangFromStorage);
 
-// localStorage.clear();
-
 keyboard = getLangFromStorage();
 
 const renderKeyboard = () => {
-  console.log(keyboard);
   let renderedKeyboard = '';
   for (let i = 0; i < keyboard.length; i += 1) {
     const num = keyboard[i].trim();
@@ -67,7 +59,6 @@ const renderKeyboard = () => {
 renderKeyboard();
 
 function renderKeyboardAnother() {
-  console.log('anoooother');
   renderField.innerHTML = '';
   if (keyboard === keyboardEng) {
     keyboard = keyboardRus;
@@ -78,9 +69,6 @@ function renderKeyboardAnother() {
   }
 }
 
-// const SpaceKey = document.querySelector('.key-space');
-// SpaceKey.classList.add('space-key-width');
-
 function getCapslockedFromKeyboard() {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     el.classList.toggle('capslocked');
@@ -88,7 +76,6 @@ function getCapslockedFromKeyboard() {
 }
 
 document.onkeydown = (event) => {
-  console.log(event.code);
   if (event.code === 'Backquote') {
     document.querySelector('.key-00').classList.add('active');
   } else if (event.code === 'Equal') {
@@ -124,8 +111,6 @@ document.onkeydown = (event) => {
     document.querySelector('.key-054').classList.add('active');
   } else if (event.code === 'ControlLeft') {
     document.querySelector('.key-055').classList.add('active');
-    console.log(event);
-    // renderKeyboardAnother();
   } else if (event.code === 'MetaLeft') {
     event.preventDefault();
     document.querySelector('.key-056').classList.add('active');
@@ -152,7 +137,6 @@ document.onkeydown = (event) => {
       el.classList.remove('active');
     });
     document.querySelector(`.key-${event.key.toLowerCase()}`).classList.add('active');
-    console.log(event);
   }
 };
 
@@ -163,7 +147,6 @@ document.addEventListener('keydown', (event) => {
   if (event.code === 'AltLeft' && check) {
     check = false;
     renderKeyboardAnother();
-    console.log('ding!');
   }
 });
 
@@ -233,7 +216,6 @@ function removeCapslocked() {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     if (el.classList.contains('capslocked')) {
       el.classList.remove('capslocked');
-      console.log('removed!');
       el.innerHTML = el.innerHTML.toLowerCase(); // eslint-disable-line no-param-reassign
     }
   });
@@ -243,7 +225,6 @@ function getCapslocked() {
   document.querySelectorAll('.keyboard-key').forEach((el) => {
     el.classList.add('capslocked');
     el.innerHTML = el.innerHTML.toUpperCase(); // eslint-disable-line no-param-reassign
-    console.log(el.innerHTML);
   });
 }
 
@@ -283,8 +264,6 @@ renderField.addEventListener('mousedown', (e) => {
   }
   targetClick.classList.add('active');
   screenForPrint.value += targetKey;
-  console.log(targetClick);
-  console.log(targetKey);
 });
 
 renderField.addEventListener('mouseup', (e) => {
